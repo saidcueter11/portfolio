@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "nova-mono";
+  src: url("../fonts/nova-mono-v18-latin-regular.woff2");
+}
+
+@font-face {
+  font-family: "fredoka";
+  src: url("../fonts/FredokaOne-Regular.ttf");
+}
