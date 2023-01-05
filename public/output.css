@@ -810,8 +810,16 @@ video {
   border-radius: 1rem;
 }
 
+.rounded {
+  border-radius: 0.25rem;
+}
+
 .border {
   border-width: 1px;
+}
+
+.border-2 {
+  border-width: 2px;
 }
 
 .border-yellow-ligth {
@@ -825,6 +833,11 @@ video {
 
 .border-yellow-ligth\/75 {
   border-color: rgb(247 255 147 / 0.75);
+}
+
+.border-t-yellow-ligth {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(247 255 147 / var(--tw-border-opacity));
 }
 
 .bg-green-teal-dark {
