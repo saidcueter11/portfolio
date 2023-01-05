@@ -1,6 +1,6 @@
 export { }
 
-let lastScrollPosition = 0
+let lastScrollPosition = 10
 
 const menuCollpased = document.querySelector('#menu-collapsed')
 const menuExpanded = document.querySelector('#menu-expanded')
@@ -30,19 +30,25 @@ const menuClose = () => {
 }
 
 const headerToggle = () => {
+  // Scrolling Down
   if (window.scrollY > lastScrollPosition) {
     lastScrollPosition = window.scrollY
-    header?.classList.remove('opacity-100')
     header?.classList.add('opacity-0')
+    header?.classList.remove('bg-green-teal-dark/90')
     header?.classList.remove('shadow')
   } else {
+    // Scrolling Up
     lastScrollPosition = window.scrollY
+    header?.classList.add('bg-green-teal-dark/90')
     header?.classList.remove('opacity-0')
-    header?.classList.add('opacity-100')
     header?.classList.add('shadow')
   }
 
-  if (window.scrollY === 0) header?.classList.remove('shadow')
+  // Top of the screen
+  if (window.scrollY === 0) {
+    header?.classList.remove('shadow')
+    header?.classList.remove('bg-green-teal-dark/90')
+  }
 }
 
 menuCollpased?.addEventListener('click', (e) => menuToggle(e))
