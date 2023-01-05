@@ -32,7 +32,7 @@ const menuClose = () => {
 const headerToggle = () => {
   // Scrolling Down
   if (window.scrollY > lastScrollPosition) {
-    lastScrollPosition = window.scrollY
+    lastScrollPosition = window.scrollY + 10
     header?.classList.add('opacity-0')
     header?.classList.remove('bg-green-teal-dark/90')
     header?.classList.remove('shadow')
