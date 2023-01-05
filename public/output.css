@@ -637,6 +637,14 @@ video {
   height: 100vh;
 }
 
+.h-36 {
+  height: 9rem;
+}
+
+.h-40 {
+  height: 10rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -665,8 +673,20 @@ video {
   width: 6rem;
 }
 
+.w-72 {
+  width: 18rem;
+}
+
 .grow {
   flex-grow: 1;
+}
+
+.origin-top {
+  transform-origin: top;
+}
+
+.origin-center {
+  transform-origin: center;
 }
 
 @-webkit-keyframes bounce {
@@ -849,6 +869,31 @@ video {
 
 .bg-yellow-ligth\/20 {
   background-color: rgb(247 255 147 / 0.2);
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.object-fill {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.object-center {
+  -o-object-position: center;
+     object-position: center;
+}
+
+.object-top {
+  -o-object-position: top;
+     object-position: top;
+}
+
+.object-bottom {
+  -o-object-position: bottom;
+     object-position: bottom;
 }
 
 .p-1 {
