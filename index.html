@@ -11,7 +11,7 @@
 
 <body>
   <main
-    class="bg-gradient-to-r from-green-teal-dark via-green-teal-dark/90 to-green-teal-dark/80 min-h-screen px-10 relative">
+    class="bg-gradient-to-r from-green-teal-dark via-green-teal-dark/90 to-green-teal-dark/80 h-full px-10 relative overflow-auto">
     <header class="fixed w-full left-0 px-4 pt-3 z-50 transition-all duration-300" id="header">
       <nav class="relative flex justify-between items-center">
 
@@ -127,44 +127,89 @@
     <section id="projectPage" class="m-auto min-h-screen w-full duration-500 md:w-10/12 sm:w-10/12 pt-14">
       <h2 class="self-start font-fredoka text-4xl text-slate-100/90">Projects</h2>
 
-      <div class="w-full h-full pt-6">
-        <div class="w-full h-32">
-          <!-- this will be an image -->
-          <figure class="w-full">
-            <a href="https://saidcueter11.github.io/WeatherApp/">
-              <img src="weather (20230105011646).png"
-                class="w-full h-full object-cover shadow-xl rounded-lg border border-yellow-ligth" alt="">
-            </a>
-          </figure>
-          <div class="w-full">
-            <p class="text-sm text-slate-100/70 font-fredoka text-center pt-5">Weather App project that shows you
-              information from an public API and
-              displays it showing the current weather and the forecast for the next 5 days. Also, it allows you to save
-              your favorites cities to ease the future searches.</p>
+      <div class="h-screen w-full flex flex-col gap-16">
+        <div class="w-full h-full pt-6">
+          <div class="w-full h-32">
+            <!-- this will be an image -->
+            <figure class="w-full h-40">
+              <a href="https://saidcueter11.github.io/WeatherApp/">
+                <img src="Screenshot from 2023-02-01 01-07-47.png"
+                  class="w-full h-full shadow-xl rounded-lg border border-yellow-ligth" alt="">
+              </a>
+            </figure>
+            <div class="w-full">
+              <p class="text-sm text-slate-100/70 font-fredoka text-center pt-5">Weather App project that shows you
+                information from an public API and
+                displays it showing the current weather and the forecast for the next 5 days. Also, it allows you to
+                save
+                your favorites cities to ease the future searches.</p>
 
-            <div class="w-full flex items-center justify-between pt-5">
-              <div
-                class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center h-full">
-                <img src="public/img/react.svg" alt="">
-                <p class="font-nova-mono text-yellow-ligth text-xs text-center">React JS</p>
-              </div>
-              <div
-                class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-2 justify-self-center">
-                <img src="public/img/tailwindcss-icon.svg" alt="">
-                <p class="font-nova-mono text-yellow-ligth text-xs text-center">Tailwind</p>
+              <div class="w-full flex items-center justify-between pt-5">
+                <div
+                  class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center h-full">
+                  <img src="public/img/react.svg" alt="">
+                  <p class="font-nova-mono text-yellow-ligth text-xs text-center">React JS</p>
+                </div>
+                <div
+                  class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-2 justify-self-center">
+                  <img src="public/img/tailwindcss-icon.svg" alt="">
+                  <p class="font-nova-mono text-yellow-ligth text-xs text-center">Tailwind</p>
 
-              </div>
-              <div
-                class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
-                <img src="public/img/typescript-icon.svg" alt="">
-                <p class="font-nova-mono text-yellow-ligth text-xs text-center">TypeScript</p>
+                </div>
+                <div
+                  class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
+                  <img src="public/img/typescript-icon.svg" alt="">
+                  <p class="font-nova-mono text-yellow-ligth text-xs text-center">TypeScript</p>
 
+                </div>
               </div>
             </div>
           </div>
+
+        </div>
+
+        <div class="w-full h-full pt-6">
+          <div class="w-full h-32">
+            <!-- this will be an image -->
+            <figure class="w-full h-40">
+              <a href="https://saidcueter11.github.io/WeatherApp/">
+                <img src="Screenshot from 2023-02-01 01-07-47.png"
+                  class="w-full h-full shadow-xl rounded-lg border border-yellow-ligth" alt="">
+              </a>
+            </figure>
+            <div class="w-full">
+              <p class="text-sm text-slate-100/70 font-fredoka text-center pt-5">Weather App project that shows you
+                information from an public API and
+                displays it showing the current weather and the forecast for the next 5 days. Also, it allows you to
+                save
+                your favorites cities to ease the future searches.</p>
+
+              <div class="w-full flex items-center justify-between pt-5">
+                <div
+                  class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center h-full">
+                  <img src="public/img/react.svg" alt="">
+                  <p class="font-nova-mono text-yellow-ligth text-xs text-center">React JS</p>
+                </div>
+                <div
+                  class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-2 justify-self-center">
+                  <img src="public/img/tailwindcss-icon.svg" alt="">
+                  <p class="font-nova-mono text-yellow-ligth text-xs text-center">Tailwind</p>
+
+                </div>
+                <div
+                  class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
+                  <img src="public/img/typescript-icon.svg" alt="">
+                  <p class="font-nova-mono text-yellow-ligth text-xs text-center">TypeScript</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
+
 
     </section>
   </main>
