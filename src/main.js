@@ -1,6 +1,6 @@
 export { }
 
-let lastScrollPosition = 10
+let lastScrollPosition = 0
 
 const menuCollpased = document.querySelector('#menu-collapsed')
 const menuExpanded = document.querySelector('#menu-expanded')
@@ -32,7 +32,7 @@ const menuClose = () => {
 const headerToggle = () => {
   // Scrolling Down
   if (window.scrollY > lastScrollPosition) {
-    lastScrollPosition = window.scrollY + 10
+    lastScrollPosition = window.scrollY
     header?.classList.add('opacity-0')
     header?.classList.remove('bg-green-teal-dark/90')
     header?.classList.remove('shadow')
@@ -45,7 +45,7 @@ const headerToggle = () => {
   }
 
   // Top of the screen
-  if (window.scrollY === 0) {
+  if (window.scrollY <= 5) {
     header?.classList.remove('shadow')
     header?.classList.remove('bg-green-teal-dark/90')
   }
