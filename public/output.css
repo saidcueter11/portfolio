@@ -625,6 +625,10 @@ video {
   display: grid;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-12 {
   height: 3rem;
 }
@@ -1278,6 +1282,10 @@ video {
 
   .md\:mb-5 {
     margin-bottom: 1.25rem;
+  }
+
+  .md\:block {
+    display: block;
   }
 
   .md\:flex {
