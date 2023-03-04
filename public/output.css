@@ -1300,6 +1300,14 @@ video {
     height: 18rem;
   }
 
+  .md\:h-full {
+    height: 100%;
+  }
+
+  .md\:min-h-full {
+    min-height: 100%;
+  }
+
   .md\:w-10\/12 {
     width: 83.333333%;
   }
