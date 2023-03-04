@@ -5,7 +5,38 @@ let lastScrollPosition = 0
 const menuCollpased = document.querySelector('#menu-collapsed')
 const menuExpanded = document.querySelector('#menu-expanded')
 const homePage = document.querySelector('#homePage')
+const aboutPage = document.querySelector('#aboutPage')
+const projectPage = document.querySelector('#projectPage')
+const experiencePage = document.querySelector('#experiencePage')
+const experienceError = document.querySelector('#experienceError')
 const header = document.querySelector('#header')
+
+const pageTransition = (page) => {
+  page.classList.remove('opacity-0')
+  page.classList.remove('translate-y-5')
+  page.classList.add('opacity-100')
+  page.classList.add('translate-y-0')
+}
+
+const callback = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.target.id === 'aboutPage' && entry.isIntersecting) pageTransition(aboutPage)
+    if (entry.target.id === 'projectPage' && entry.isIntersecting) pageTransition(projectPage)
+    if (entry.target.id === 'experiencePage' && entry.isIntersecting) {
+      pageTransition(experiencePage)
+      setTimeout(() => {
+        experienceError.classList.remove('opacity-0')
+        experienceError.classList.add('opacity-100')
+      }, 2000)
+    }
+  })
+}
+
+const observer = new IntersectionObserver(callback, { root: null, rootMargin: '0px', threshold: 0.3 })
+
+observer.observe(aboutPage)
+observer.observe(projectPage)
+observer.observe(experiencePage)
 
 const menuToggle = (e) => {
   e.stopPropagation()

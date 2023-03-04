@@ -17,5 +17,6 @@ module.exports = {
         fredoka: ['fredoka']
       }
     }
-  }
+  },
+  plugins: [require('@shrutibalasa/tailwind-grid-auto-fit')]
 }
