@@ -596,6 +596,10 @@ video {
   z-index: 10;
 }
 
+.col-auto {
+  grid-column: auto;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -653,6 +657,12 @@ video {
   height: 3.5rem;
 }
 
+.h-fit {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -689,8 +699,16 @@ video {
   width: 40%;
 }
 
+.w-2\/4 {
+  width: 50%;
+}
+
 .min-w-\[280px\] {
   min-width: 280px;
+}
+
+.min-w-\[70px\] {
+  min-width: 70px;
 }
 
 .max-w-4xl {
@@ -699,6 +717,10 @@ video {
 
 .max-w-5xl {
   max-width: 64rem;
+}
+
+.max-w-md {
+  max-width: 28rem;
 }
 
 .max-w-sm {
@@ -786,8 +808,36 @@ video {
           animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+.grid-flow-col {
+  grid-auto-flow: column;
+}
+
+.grid-flow-col-dense {
+  grid-auto-flow: column dense;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
 }
 
 .place-content-center {
@@ -973,12 +1023,16 @@ video {
   padding-top: 3.5rem;
 }
 
+.pt-8 {
+  padding-top: 2rem;
+}
+
 .pt-5 {
   padding-top: 1.25rem;
 }
 
-.pt-8 {
-  padding-top: 2rem;
+.pb-3 {
+  padding-bottom: 0.75rem;
 }
 
 .text-center {
@@ -1194,6 +1248,10 @@ video {
     width: 83.333333%;
   }
 
+  .sm\:w-3\/4 {
+    width: 75%;
+  }
+
   .sm\:flex-row {
     flex-direction: row;
   }
@@ -1204,14 +1262,6 @@ video {
 }
 
 @media (min-width: 768px) {
-  .md\:col-start-1 {
-    grid-column-start: 1;
-  }
-
-  .md\:col-end-2 {
-    grid-column-end: 2;
-  }
-
   .md\:row-span-1 {
     grid-row: span 1 / span 1;
   }
@@ -1256,8 +1306,24 @@ video {
     width: 83.333333%;
   }
 
+  .md\:w-full {
+    width: 100%;
+  }
+
+  .md\:grid-flow-col {
+    grid-auto-flow: column;
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-none {
+    grid-template-columns: none;
+  }
+
+  .md\:grid-rows-1 {
+    grid-template-rows: repeat(1, minmax(0, 1fr));
   }
 
   .md\:gap-4 {
@@ -1270,6 +1336,10 @@ video {
 
   .md\:pl-10 {
     padding-left: 2.5rem;
+  }
+
+  .md\:text-start {
+    text-align: start;
   }
 
   .md\:text-5xl {
@@ -1299,6 +1369,14 @@ video {
 }
 
 @media (min-width: 1024px) {
+  .lg\:grid-flow-col {
+    grid-auto-flow: column;
+  }
+
+  .lg\:grid-rows-1 {
+    grid-template-rows: repeat(1, minmax(0, 1fr));
+  }
+
   .lg\:pt-24 {
     padding-top: 6rem;
   }
