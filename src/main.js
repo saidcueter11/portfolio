@@ -65,19 +65,20 @@ const headerToggle = () => {
   if (window.scrollY > lastScrollPosition) {
     lastScrollPosition = window.scrollY
     header?.classList.add('opacity-0')
-    header?.classList.remove('bg-green-teal-dark/90')
-    header?.classList.remove('shadow')
+    header?.classList.remove('backdrop-blur')
+    header?.classList.remove('shadow-lg')
   } else {
     // Scrolling Up
     lastScrollPosition = window.scrollY
-    header?.classList.add('bg-green-teal-dark/90')
     header?.classList.remove('opacity-0')
-    header?.classList.add('shadow')
+    header?.classList.add('backdrop-blur')
+    header?.classList.add('shadow-lg')
   }
 
   // Top of the screen
   if (window.scrollY <= 5) {
-    header?.classList.remove('shadow')
+    header?.classList.remove('shadow-lg')
+    header?.classList.remove('backdrop-blur')
     header?.classList.remove('bg-green-teal-dark/90')
   }
 }
@@ -85,3 +86,41 @@ const headerToggle = () => {
 menuCollpased?.addEventListener('click', (e) => menuToggle(e))
 window.addEventListener('click', menuClose)
 window.addEventListener('scroll', headerToggle)
+
+window.addEventListener('DOMContentLoaded', function () {
+  const textName = document.getElementById('typing-name')
+  const nameBlinker = document.getElementById('name-blinker')
+  const titleBlinker = document.getElementById('title-blinker')
+  const textTitle = document.getElementById('typing-title')
+  const descriptionContainer = this.document.getElementById('description-container')
+
+  const myName = 'Said Cueter.'
+  const title = 'Hello World! My name is'
+  let myNameIndex = 0
+  let titleIndex = 0
+
+  function typeText () {
+    if (titleIndex < title.length) {
+      textTitle.innerHTML += title.charAt(titleIndex)
+      titleIndex++
+      setTimeout(typeText, 50)
+    }
+
+    if (titleIndex === title.length) {
+      titleBlinker.innerHTML = ''
+      nameBlinker.innerHTML = '|'
+    }
+
+    if (myNameIndex < myName.length && titleIndex === title.length) {
+      textName.innerHTML += myName.charAt(myNameIndex)
+      myNameIndex++
+      setTimeout(typeText, 100)
+    }
+
+    if (myNameIndex === myName.length) {
+      descriptionContainer.classList.add('opacity-100')
+    }
+  }
+
+  typeText()
+})

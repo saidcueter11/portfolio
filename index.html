@@ -10,14 +10,14 @@
 </head>
 
 <body>
-  <main class="bg-gradient-to-r from-green-teal-dark via-green-teal-dark/90 to-green-teal-dark/80 px-10 relative">
-    <header class="fixed w-full left-0 px-4 pt-3 z-50 transition-all duration-300" id="header">
+  <main class="bg-gradient-to-t from-green-teal-dark to-green-teal-ligth/80 px-10 relative w-full z-20">
+    <header class="fixed w-full left-0 z-50 transition-all duration-300" id="header">
       <nav class="relative flex justify-between items-center">
 
         <a href="#homePage" class="md:pl-10">
 
           <!-- Logo -->
-          <img src="public/img/logo.svg" alt="">
+          <img src="public/img/logo.svg" alt="logo" class="w-24">
 
         </a>
 
@@ -46,10 +46,10 @@
         <!-- Desktop menu -->
         <div class="hidden md:block">
           <ul class="flex gap-8 text-lg pr-10 font-nova-mono text-yellow-ligth">
-            <li><a href="#homePage">Home</a></li>
-            <li><a href="#aboutPage">About</a></li>
-            <li><a href="#projectPage">Projects</a></li>
-            <li><a href="#experiencePage">Experience</a></li>
+            <li class="hover:scale-105 transition-transform hover:opacity-80"><a href="#homePage">Home</a></li>
+            <li class="hover:scale-105 transition-transform hover:opacity-80"><a href="#aboutPage">About</a></li>
+            <li class="hover:scale-105 transition-transform hover:opacity-80"><a href="#projectPage">Projects</a></li>
+            <li class="hover:scale-105 transition-transform hover:opacity-80"><a href="#experiencePage">Experience</a></li>
           </ul>
         </div>
 
@@ -60,32 +60,44 @@
     <section id="homePage"
       class="m-auto min-h-screen w-full duration-700 flex flex-col gap-10 justify-around items-center md:w-10/12 sm:w-10/12 pt-20 max-w-4xl">
       <div class="flex justify-center flex-col gap-4">
-        <h1 class="text-yellow-ligth text-lg font-nova-mono lg:text-xl">Hello World! My name is</h1>
-        <h2 class="text-4xl font-fredoka text-slate-100/90 md:text-5xl lg:text-7xl">Said Cueter.</h2>
-        <p class="font-fredoka text-xl text-slate-100/70 md:text-3xl">Computer Programmer (Front-End Developer)</p>
-        <p class="font-fredoka text-slate-100 opacity-90 md:text-lg lg:text-xl">I'm a developer focused in web technologies, specially in
-          Front-End development. Currently working in personal projects to grow my personal brand and start my journey
-          in this industry.</p>
 
-        <div class="flex gap-2">
-          <a href="https://github.com/saidcueter11" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github stroke-slate-100/70 hover:stroke-yellow-ligth" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-            </svg>
-          </a>
-
-          <a href="https://www.linkedin.com/in/said-cueter-091138191/" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin stroke-slate-100/70 hover:stroke-yellow-ligth" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <rect x="4" y="4" width="16" height="16" rx="2" />
-              <line x1="8" y1="11" x2="8" y2="16" />
-              <line x1="8" y1="8" x2="8" y2="8.01" />
-              <line x1="12" y1="16" x2="12" y2="11" />
-              <path d="M16 16v-3a2 2 0 0 0 -4 0" />
-            </svg>
-          </a>
+        <div class="flex">
+          <h1 class="text-yellow-ligth text-lg font-nova-mono lg:text-xl" id="typing-title"></h1>
+          <span class="cursor ml-1 animate-blink text-yellow-ligth text-lg font-nova-mono lg:text-xl" id="title-blinker">|</span>
         </div>
+
+        <div class="flex">
+          <h2 class="text-4xl font-fredoka text-slate-100/90 md:text-5xl lg:text-7xl" id="typing-name"></h2>
+          <span class="cursor ml-1 animate-blink text-slate-100/90 md:text-5xl lg:text-7xl text-4xl" id="name-blinker"></span>
+        </div>
+
+        <div class="opacity-0 transition-all duration-700" id="description-container">
+          <p class="font-fredoka text-xl text-slate-100/70 md:text-3xl">Computer Programmer (Front-End Developer)</p>
+          <p class="font-fredoka text-slate-100 opacity-90 md:text-lg lg:text-xl">I'm a developer focused in web technologies, specially in
+            Front-End development. Currently working in personal projects to grow my personal brand and start my journey
+            in this industry.</p>
+  
+          <div class="flex gap-2">
+            <a href="https://github.com/saidcueter11" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github stroke-slate-100/70 hover:stroke-yellow-ligth" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+              </svg>
+            </a>
+  
+            <a href="https://www.linkedin.com/in/said-cueter-091138191/" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin stroke-slate-100/70 hover:stroke-yellow-ligth" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <rect x="4" y="4" width="16" height="16" rx="2" />
+                <line x1="8" y1="11" x2="8" y2="16" />
+                <line x1="8" y1="8" x2="8" y2="8.01" />
+                <line x1="12" y1="16" x2="12" y2="11" />
+                <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
       </div>
 
       <div class="flex flex-col items-center gap-5">
@@ -99,8 +111,8 @@
 
     <!-- About Page -->
     <section id="aboutPage"
-      class="m-auto min-h-screen md:min-h-full duration-700 w-full flex flex-col gap-10 md:w-10/12 sm:w-10/12 pt-14 opacity-0 transition-all translate-y-5 max-w-5xl">
-      <div class="grid gap-4 justify-center items-center">
+      class="m-auto min-h-full duration-700 w-full flex flex-col gap-5 md:w-10/12 sm:w-10/12 pt-14 opacity-0 transition-all translate-y-5 max-w-4xl">
+      <div class="grid gap-5 justify-center items-center">
         <h2 class="text-4xl font-fredoka text-slate-100/90 self-start md:text-5xl ">About Me</h2>
         <p class="text-base text-slate-100/70 font-fredoka md:text-lg">I'm a Colombian developer currently residing in Canada. I
           have a professional degree in Industrial Management and I expanded my action field by getting a diploma career
@@ -113,7 +125,7 @@
       </div>
 
       <!-- List of technologies -->
-      <div class="grid gap-2 grid-auto-fit-[140px]">
+      <div class="flex gap-2 flex-wrap justify-center">
         <div
           class="px-2 py-3 bg-yellow-ligth/5 w-36 border border-yellow-ligth rounded-3xl flex flex-col items-center gap-1 justify-self-center">
           <img src="public/img/javascript.svg" alt="">
@@ -165,19 +177,50 @@
       </div>
     </section>
 
+    <!-- Experience Page -->
+    <section id="experiencePage" class="m-auto w-full duration-500 md:w-10/12 sm:w-10/12 pt-14 lg:pt-24 opacity-0 transition-all translate-y-5 max-w-4xl">
+      <h2 class="self-start font-fredoka text-4xl text-slate-100/90 md:text-5xl">Experience</h2>
+
+      <div class="w-full grid place-content-center gap-3">
+
+        <div class="md:grid md:grid-cols-3 pt-8">
+          <div class="md:col-span-1 md:max-w-fit">
+            <p class="font-nova-mono text-yellow-ligth">December 2023 - Current</p>
+          </div>
+
+          <div class="md:col-span-2">
+            <h2 class="font-fredoka text-xl text-slate-100/90 md:text-2xl">Software Developer - React JS</h2>
+            <p class="mb-2 md:m-0 font-nova-mono text-md text-yellow-ligth md:text-lg">Defend, 65 Square - Canada</p>
+
+            <p class="text-sm text-slate-100/70 text-start font-fredoka md:text-base md:row-span-2">
+              Develop scalable and responsive user interfaces using React.js.
+              Update and improve existing software to enhance functionality and adapt to new requirements.
+              Implement new features and user interfaces in collaboration with the design and development teams.
+            </p>
+          
+          </div>
+        </div>    
+
+      </div>
+
+    </section>
+
     <!-- Project Page -->
-    <section id="projectPage" class="m-auto w-full duration-500 md:w-10/12 sm:w-10/12 pt-14 lg:pt-24 opacity-0 transition-all translate-y-5 max-w-4xl">
+    <section id="projectPage" class="m-auto w-full duration-500 md:w-10/12 sm:w-10/12 py-14 lg:py-24 opacity-0 transition-all translate-y-5 max-w-4xl">
       <h2 class="self-start font-fredoka text-4xl text-slate-100/90 md:text-5xl ">Projects</h2>
 
+      <!-- Connet Project -->
       <div class="w-full h-full flex flex-col md:grid md:grid-cols-2 md:gap-4 items-center justify-items-center pt-8">
 
         <figure class="max-w-md min-w-[280px] md:row-span-1 relative">
           <h2 class="text-center mb-2 font-fredoka text-2xl text-slate-100/90 md:text-3xl">Connet - Conestoga Network</h2>
-          <p class="text-sm text-slate-100/70 font-fredoka text-center pb-3 md:text-base md:row-span-2">(Responsive Design)</p>
+          <p class="text-sm text-yellow-ligth font-nova-mono text-center pb-3 md:text-base md:row-span-2">(Responsive Design)</p>
+
           <a href="https://connet-cyan.vercel.app/" target="_blank">
-            <img src="img/connetApp.png" class="w-full h-full shadow-xl rounded-lg border border-yellow-ligth" alt="">
+            <img src="img/connetApp.png" class="w-full h-full shadow-xl rounded-lg border border-yellow-ligth hover:fill-black" alt="">
           </a>
-          <a class="absolute bottom-1 left-1 bg-blue-clear opacity-90 rounded-lg p-0.5 hover:opacity-100 hover:scale-105 transition-all" href="https://github.com/saidcueter11/connet" target="_blank">
+            
+          <a class="absolute bottom-1 left-1 bg-blue-clear rounded-lg p-0.5 hover:opacity-100 hover:scale-105 transition-all" href="https://github.com/saidcueter11/connet" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github stroke-slate-100/70 hover:stroke-yellow-ligth" width="44" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
               <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
@@ -185,36 +228,37 @@
           </a>
         </figure>
         
-        <p class="text-sm text-slate-100/70 text-center md:text-start font-fredoka pt-5 md:p-0 md:text-base md:row-span-2">
+        <p class="text-sm text-slate-100/70 text-center md:text-start font-fredoka pt-5 md:p-0 md:text-base md:row-span-2 h-1/2">
           Connet is a social media app designed for college students to share innovative ideas and connect with their peers. Through our app, users can join or create groups, create connections, and share their ideas with others. Private messaging allows for easy communication and collaboration. With Connet app, college students can stay connected and inspired while fostering creativity and innovation in their academic communities.
         </p>
 
-        <div class="w-full grid grid-cols-3 lg:grid-rows-1 lg:grid-flow-col gap-2 items-center justify-evenly pt-5 ">
+        <!-- List of Technologies -->
+        <div class="w-full flex flex-wrap gap-2 items-center justify-center pt-5 md:p-0">
           <div
-            class="px-2 py-3 bg-yellow-ligth/5 min-w-[70px] sm:w-3/4 md:w-full w-full border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
+            class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
             <img src="public/img/nextjs-icon.svg" alt="">
             <p class="font-nova-mono text-yellow-ligth text-xs text-center">Next JS</p>
           </div>
           <div
-            class="px-2 py-3 bg-yellow-ligth/5 min-w-[70px] sm:w-3/4 md:w-full w-full border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
+            class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
             <img src="public/img/typescript-icon.svg" alt="">
             <p class="font-nova-mono text-yellow-ligth text-xs text-center">TypeScript</p>
 
           </div>
           <div
-            class="px-2 py-3 bg-yellow-ligth/5 min-w-[70px] sm:w-3/4 md:w-full w-full border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
+            class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
             <img src="public/img/react.svg" alt="">
             <p class="font-nova-mono text-yellow-ligth text-xs text-center">React JS</p>
           </div>
           <div
-            class="px-2 py-3 bg-yellow-ligth/5 min-w-[70px] sm:w-3/4 md:w-full w-full  border border-yellow-ligth rounded-2xl flex flex-col items-center gap-2 justify-self-center">
+            class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-2 justify-self-center">
             <img src="public/img/tailwindcss-icon.svg" alt="">
             <p class="font-nova-mono text-yellow-ligth text-xs text-center">Tailwind</p>
 
           </div>
 
           <div
-            class="px-2 py-3 bg-yellow-ligth/5 min-w-[70px] sm:w-3/4 md:w-full w-full border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
+            class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
             <img src="public/img/firebase.svg" alt="">
             <p class="font-nova-mono text-yellow-ligth text-xs text-center">Firebase</p>
 
@@ -223,10 +267,11 @@
 
       </div>
 
+      <!-- Shopi Project -->
       <div class="w-full h-full flex flex-col md:grid md:grid-cols-2 md:gap-4 items-center justify-items-center pt-4">
         <figure class="max-w-md min-w-[280px] md:row-span-1 relative">
           <h2 class="text-center mb-2 font-fredoka text-2xl text-slate-100/90 md:text-3xl">Shopi App</h2>
-          <p class="text-sm text-slate-100/70 font-fredoka text-center pb-3 md:text-base md:row-span-2">(Responsive Design)</p>
+          <p class="text-sm text-yellow-ligth font-nova-mono text-center pb-3 md:text-base md:row-span-2">(Responsive Design)</p>
           <a href="https://shopiscueter.netlify.app/" target="_blank">
             <img src="img/shopi.png"
               class="w-full h-full shadow-xl rounded-lg border border-yellow-ligth" alt="">
@@ -239,22 +284,23 @@
           </a>
         </figure>
 
-        <p class="text-sm text-slate-100/70 font-fredoka text-center pt-5 md:p-0 md:text-base md:row-start-1 md:row-end-3 lg:text-end">Shopi App is a fake e-commerce that consumes a fake store API to display a list of multiple products. Within the app you will be able to create your own account where you will keep a record of your orders and account info, this is saved in the localstorage of your browser.</p>
+        <p class="text-sm text-slate-100/70 font-fredoka text-center pt-5 md:p-0 md:text-base md:row-start-1 md:row-end-3 lg:text-end h-1/2">Shopi App is a fake e-commerce that consumes a fake store API to display a list of multiple products. Within the app you will be able to create your own account where you will keep a record of your orders and account info, this is saved in the localstorage of your browser.</p>
 
-        <div class="w-full flex items-center justify-evenly pt-5">
+        <!-- List of Technologies -->
+        <div class="w-full flex items-center gap-2 justify-center pt-5 md:p-0">
           <div
-            class="px-2 py-3 bg-yellow-ligth/5 w-1/4 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center h-full">
+            class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center h-full">
             <img src="public/img/react.svg" alt="">
             <p class="font-nova-mono text-yellow-ligth text-xs text-center">React JS</p>
           </div>
           <div
-            class="px-2 py-3 bg-yellow-ligth/5 w-1/4 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-2 justify-self-center">
+            class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-2 justify-self-center">
             <img src="public/img/tailwindcss-icon.svg" alt="">
             <p class="font-nova-mono text-yellow-ligth text-xs text-center">Tailwind</p>
 
           </div>
           <div
-            class="px-2 py-3 bg-yellow-ligth/5 w-1/4 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
+            class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
             <img src="public/img/typescript-icon.svg" alt="">
             <p class="font-nova-mono text-yellow-ligth text-xs text-center">TypeScript</p>
 
@@ -263,11 +309,12 @@
 
       </div>
       
+      <!-- ToDo Project -->
       <div class="w-full h-full flex flex-col md:grid md:grid-cols-2 md:gap-4 items-center justify-items-center pt-4">
 
         <figure class="max-w-sm min-w-[280px] md:row-span-1 relative">
           <h2 class="text-center mb-2 font-fredoka text-2xl text-slate-100/90 md:text-3xl">To-Do Machine App</h2>
-          <p class="text-sm text-slate-100/70 font-fredoka text-center pb-3 md:text-base md:row-span-2">(Mobile Design)</p>
+          <p class="text-sm text-yellow-ligth font-nova-mono text-center pb-3 md:text-base md:row-span-2">(Mobile Design)</p>
 
           <a href="https://saidcueter11.github.io/todo-machine-react-router/" target="_blank">
             <img src="img/to-doMachine.png"
@@ -281,26 +328,27 @@
           </a>
         </figure>
         
-        <p class="text-sm text-slate-100/70 font-fredoka text-center pt-5 md:p-0 md:text-base md:row-span-2 lg:text-start">
+        <p class="text-sm text-slate-100/70 font-fredoka text-center pt-5 md:p-0 md:text-base md:row-span-2 lg:text-start h-1/2">
           To-Do Machine App was developed with React JS, React Router and Tailwind. It allows us to
           create multiple tasks to a list, delete them, edit the task if we desiare and completed once we are done
           with the task.
         </p>
 
-        <div class="w-full flex items-center justify-evenly pt-5">
+        <!-- List of Technologies -->
+        <div class="w-full flex items-center gap-2 justify-center pt-5 md:p-0">
           <div
-            class="px-2 py-3 bg-yellow-ligth/5 w-1/4 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center h-full">
+            class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center h-full">
             <img src="public/img/react.svg" alt="">
             <p class="font-nova-mono text-yellow-ligth text-xs text-center">React JS</p>
           </div>
           <div
-            class="px-2 py-3 bg-yellow-ligth/5 w-1/4 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-2 justify-self-center">
+            class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-2 justify-self-center">
             <img src="public/img/tailwindcss-icon.svg" alt="">
             <p class="font-nova-mono text-yellow-ligth text-xs text-center">Tailwind</p>
 
           </div>
           <div
-            class="px-2 py-3 bg-yellow-ligth/5 w-1/4 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
+            class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
             <img src="public/img/typescript-icon.svg" alt="">
             <p class="font-nova-mono text-yellow-ligth text-xs text-center">TypeScript</p>
 
@@ -309,10 +357,11 @@
 
       </div>
 
+      <!-- Weather Project -->
       <div class="w-full h-full flex flex-col md:grid md:grid-cols-2 md:gap-4 items-center justify-items-center pt-4">
         <figure class="max-w-md min-w-[280px] md:row-span-1 relative">
           <h2 class="text-center mb-2 font-fredoka text-2xl text-slate-100/90 md:text-3xl">Weather App</h2>
-          <p class="text-sm text-slate-100/70 font-fredoka text-center pb-3 md:text-base md:row-span-2">(Mobile Design)</p>
+          <p class="text-sm text-yellow-ligth font-nova-mono text-center pb-3 md:text-base md:row-span-2">(Mobile Design)</p>
           <a href="https://saidcueter11.github.io/WeatherApp/" target="_blank">
             <img src="img/weatherApp.png"
               class="w-full h-full shadow-xl rounded-lg border border-yellow-ligth" alt="">
@@ -325,26 +374,27 @@
           </a>
         </figure>
 
-        <p class="text-sm text-slate-100/70 font-fredoka text-center pt-5 md:p-0 md:text-base md:row-start-1 md:row-end-3 lg:text-end">Weather App project that shows you
+        <p class="text-sm text-slate-100/70 font-fredoka text-center pt-5 md:p-0 md:text-base md:row-start-1 md:row-end-3 lg:text-end h-1/2">Weather App project that shows you
           information from an public API and
           displays it showing the current weather and the forecast for the next 5 days. Also, it allows you to
           save
           your favorites cities to ease the future searches.</p>
 
-        <div class="w-full flex items-center justify-evenly pt-5">
+        <!-- List of Technologies -->
+        <div class="w-full flex items-center justify-center gap-2 pt-5 md:p-0">
           <div
-            class="px-2 py-3 bg-yellow-ligth/5 w-1/4 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center h-full">
+            class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center h-full">
             <img src="public/img/react.svg" alt="">
             <p class="font-nova-mono text-yellow-ligth text-xs text-center">React JS</p>
           </div>
           <div
-            class="px-2 py-3 bg-yellow-ligth/5 w-1/4 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-2 justify-self-center">
+            class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-2 justify-self-center">
             <img src="public/img/tailwindcss-icon.svg" alt="">
             <p class="font-nova-mono text-yellow-ligth text-xs text-center">Tailwind</p>
 
           </div>
           <div
-            class="px-2 py-3 bg-yellow-ligth/5 w-1/4 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
+            class="px-2 py-3 bg-yellow-ligth/5 w-20 border border-yellow-ligth rounded-2xl flex flex-col items-center gap-1 justify-self-center">
             <img src="public/img/typescript-icon.svg" alt="">
             <p class="font-nova-mono text-yellow-ligth text-xs text-center">TypeScript</p>
 
@@ -355,35 +405,7 @@
 
     </section>
 
-    <section id="experiencePage" class="m-auto w-full duration-500 md:w-10/12 sm:w-10/12 pt-14 h-screen opacity-0 transition-all translate-y-5 max-w-4xl">
-      <h2 class="self-start font-fredoka text-4xl text-slate-100/90 md:text-5xl">Experience</h2>
-
-      <div class="h-3/5 w-full grid place-content-center gap-3">
-
-        <div class="w-3/4 m-auto">
-          <svg aria-hidden="true"
-            class="w-14 h-14 mr-2 text-slate-50/5 animate-spin dark:text-gray-600 fill-yellow-ligth"
-            viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-              fill="currentColor" />
-            <path
-              d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-              fill="currentFill" />
-          </svg>
-        </div>
-        <span class="text-yellow-ligth text-lg font-nova-mono animate-pulse">Loading...</span>
-      </div>
-
-      <div class="flex flex-col items-center gap-4 opacity-0 transition-opacity" id="experienceError">
-        <p class="text-sm text-slate-100/70 font-fredoka text-center pt-5">It's still loading? Click the button to fix the issue</p>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=saidcueter11@gmail.com" target="_blank" class="text-center border border-yellow-ligth rounded-lg w-2/5 py-2 text-yellow-ligth font-nova-mono hover:text-stone-900/70 hover:bg-yellow-ligth/80 md:text-lg">This button</a>
-      </div>
-
-    </section>
-
   </main>
-
   <script type="module" src="src/main.js"></script>
 </body>
 
