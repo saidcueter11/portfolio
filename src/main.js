@@ -4,11 +4,11 @@ let lastScrollPosition = 0
 
 const menuCollpased = document.querySelector('#menu-collapsed')
 const menuExpanded = document.querySelector('#menu-expanded')
-const homePage = document.querySelector('#homePage')
+// const homePage = document.querySelector('#homePage')
 const aboutPage = document.querySelector('#aboutPage')
 const projectPage = document.querySelector('#projectPage')
+const contactPage = document.querySelector('#contactPage')
 const experiencePage = document.querySelector('#experiencePage')
-const experienceError = document.querySelector('#experienceError')
 const header = document.querySelector('#header')
 
 const pageTransition = (page) => {
@@ -21,43 +21,29 @@ const pageTransition = (page) => {
 const callback = (entries, observer) => {
   entries.forEach(entry => {
     if (entry.target.id === 'aboutPage' && entry.isIntersecting) pageTransition(aboutPage)
+    if (entry.target.id === 'experiencePage' && entry.isIntersecting) pageTransition(experiencePage)
     if (entry.target.id === 'projectPage' && entry.isIntersecting) pageTransition(projectPage)
-    if (entry.target.id === 'experiencePage' && entry.isIntersecting) {
-      pageTransition(experiencePage)
-      setTimeout(() => {
-        experienceError.classList.remove('opacity-0')
-        experienceError.classList.add('opacity-100')
-      }, 2000)
-    }
+    if (entry.target.id === 'contactPage' && entry.isIntersecting) pageTransition(contactPage)
   })
 }
 
 const observer = new IntersectionObserver(callback, { root: null, rootMargin: '0px', threshold: 0.3 })
 
 observer.observe(aboutPage)
-observer.observe(projectPage)
 observer.observe(experiencePage)
+observer.observe(projectPage)
+observer.observe(contactPage)
 
 const menuToggle = (e) => {
   e.stopPropagation()
 
-  homePage?.classList.toggle('blur')
-
-  menuExpanded?.classList.toggle('invisible')
-  menuExpanded?.classList.toggle('opacity-60')
-  menuExpanded?.classList.toggle('z-10')
-
-  document.body.classList.toggle('fixed')
+  menuExpanded?.classList.toggle('z-50')
+  menuExpanded?.classList.toggle('-translate-x-full')
 }
 
 const menuClose = () => {
-  homePage?.classList.remove('blur')
-
-  menuExpanded?.classList.add('invisible')
-  menuExpanded?.classList.remove('opacity-60')
-  menuExpanded?.classList.remove('z-10')
-
-  document.body.classList.remove('fixed')
+  menuExpanded?.classList.add('-translate-x-full')
+  menuExpanded?.classList.remove('z-50')
 }
 
 const headerToggle = () => {
@@ -118,7 +104,10 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     if (myNameIndex === myName.length) {
-      descriptionContainer.classList.add('opacity-100')
+      setTimeout(
+        descriptionContainer.classList.add('opacity-100'),
+        200
+      )
     }
   }
 
