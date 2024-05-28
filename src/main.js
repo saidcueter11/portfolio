@@ -62,7 +62,7 @@ const headerToggle = () => {
   }
 
   // Top of the screen
-  if (window.scrollY <= 300) {
+  if (window.scrollY <= 50) {
     header?.classList.remove('shadow-lg')
     header?.classList.remove('opacity-0')
     header?.classList.remove('backdrop-blur')
