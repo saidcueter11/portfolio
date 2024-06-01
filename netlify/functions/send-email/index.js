@@ -2,7 +2,7 @@ import { SMTPClient } from 'emailjs'
 import dotenv from 'dotenv'
 import express from 'express'
 import cors from 'cors'
-import serverless from 'serverless-http'
+import awsServerlessExpress from 'aws-serverless-express'
 
 dotenv.config()
 
@@ -23,42 +23,53 @@ const client = new SMTPClient({
   ssl: true
 })
 
-app.post('/send-email', (req, res) => {
-  const { name, senderEmail, message } = req.body
+app.post('/send-email', async (req, res) => {
+  try {
+    const { name, senderEmail, message } = req.body
 
-  const emailMessage = {
-    text: `Name: ${name}\nEmail: ${senderEmail}\nMessage: ${message}`,
-    from: `${name} <${senderEmail}>`,
-    to: 'saidcueter11@gmail.com',
-    subject: 'New Contact Request',
-    attachment: [
-      {
-        data: `
-                  <html>
-                  <body>
-                      <h2>Contact Request from ${name}</h2>
-                      <p><strong>Email:</strong> ${senderEmail}</p>
-                      <p><strong>Message:</strong></p>
-                      <p>${message}</p>
-                  </body>
-                  </html>
-              `,
-        alternative: true
-      }
-    ]
-  }
-
-  client.send(emailMessage, (err, message) => {
-    if (err) {
-      console.error('Failed to send email...', err)
-      res.status(500).send('Failed to send email')
-    } else {
-      console.log('Email sent successfully!', message)
-      sendSuccessEmail(name, senderEmail)
-      res.status(200).send('Email sent successfully')
+    const emailMessage = {
+      text: `Name: ${name}\nEmail: ${senderEmail}\nMessage: ${message}`,
+      from: `${name} <${senderEmail}>`,
+      to: 'saidcueter11@gmail.com',
+      subject: 'New Contact Request',
+      attachment: [
+        {
+          data: `
+                    <html>
+                    <body>
+                        <h2>Contact Request from ${name}</h2>
+                        <p><strong>Email:</strong> ${senderEmail}</p>
+                        <p><strong>Message:</strong></p>
+                        <p>${message}</p>
+                    </body>
+                    </html>
+                `,
+          alternative: true
+        }
+      ]
     }
-  })
+
+    await sendEmail(emailMessage)
+    await sendSuccessEmail(name, senderEmail)
+
+    res.status(200).send('Email sent successfully')
+  } catch (error) {
+    console.error('Failed to send email...', error)
+    res.status(500).send('Failed to send email')
+  }
 })
+
+function sendEmail (emailMessage) {
+  return new Promise((resolve, reject) => {
+    client.send(emailMessage, (err, message) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(message)
+      }
+    })
+  })
+}
 
 function sendSuccessEmail (name, senderEmail) {
   const successMessage = {
@@ -69,26 +80,21 @@ function sendSuccessEmail (name, senderEmail) {
     attachment: [
       {
         data: `
-                  <html>
-                  <body>
-                      <h2>Hello ${name}</h2>
-                      <p>Your email was successfully sent.</p>
-                      <p>Thank you!</p>
-                  </body>
-                  </html>
-              `,
+                    <html>
+                    <body>
+                        <h2>Hello ${name}</h2>
+                        <p>Your email was successfully sent.</p>
+                        <p>Thank you!</p>
+                    </body>
+                    </html>
+                `,
         alternative: true
       }
     ]
   }
 
-  client.send(successMessage, (err, message) => {
-    if (err) {
-      console.error('Failed to send success email...', err)
-    } else {
-      console.log('Success email sent successfully!', message)
-    }
-  })
+  return sendEmail(successMessage)
 }
 
-module.exports.handler = serverless(app)
+const server = awsServerlessExpress.createServer(app)
+export const handler = (event, context) => awsServerlessExpress.proxy(server, event, context)
