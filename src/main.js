@@ -10,6 +10,10 @@ const projectPage = document.querySelector('#projectPage')
 const contactPage = document.querySelector('#contactPage')
 const experiencePage = document.querySelector('#experiencePage')
 const header = document.querySelector('#header')
+// const sendBtn = document.querySelector('#send-btn')
+const contactName = document.querySelector('#contactName')
+const contactEmail = document.querySelector('#contactEmail')
+const contactComment = document.querySelector('#contactComment')
 
 const pageTransition = (page) => {
   page.classList.remove('opacity-0')
@@ -113,4 +117,29 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   typeText()
+})
+
+document.getElementById('emailForm').addEventListener('submit', async function (event) {
+  event.preventDefault()
+
+  const response = await fetch('http://localhost:3000/send-email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: contactName.value,
+      senderEmail: contactEmail.value,
+      message: contactComment.value
+    })
+  })
+
+  const result = await response.text()
+  console.log(result)
+
+  if (response.ok) {
+    alert('Email sent successfully!')
+  } else {
+    alert('Failed to send email.')
+  }
 })

@@ -457,31 +457,32 @@
     <section id="contactPage" class="m-auto w-full duration-500 md:w-10/12 sm:w-10/12 py-14 lg:py-24 opacity-0 transition-all translate-y-5 max-w-4xl">
       <h2 class="self-start font-fredoka text-4xl text-slate-100/90 md:text-5xl">Get in touch</h2>
 
-      <form action="" class="flex flex-col gap-5 w-full pt-8">
+      <form action="/send-email" id="emailForm" class="flex flex-col gap-5 w-full pt-8">
         <div class="flex flex-col gap-2">
-          <label for="" class="text-sm text-slate-100/70 text-start font-fredoka md:text-base">Name</label>
-          <input class="rounded-md px-3 py-1 bg-green-teal-dark font-nova-mono text-yellow-ligth" type="text">
+          <label for="contactName" class="text-sm text-slate-100/70 text-start font-fredoka md:text-base">Name</label>
+          <input id="contactName" name="contactName" class="rounded-md px-3 py-1 bg-green-teal-dark font-nova-mono text-yellow-ligth" type="text">
         </div>
 
         <div class="flex flex-col gap-2">
-          <label for="" class="text-sm text-slate-100/70 text-start font-fredoka md:text-base">Email</label>
-          <input class="rounded-md px-3 py-1 bg-green-teal-dark font-nova-mono text-yellow-ligth" type="text">
+          <label for="contactEmail" class="text-sm text-slate-100/70 text-start font-fredoka md:text-base">Email</label>
+          <input id="contactEmail" name="contactEmail" class="rounded-md px-3 py-1 bg-green-teal-dark font-nova-mono text-yellow-ligth" type="text">
         </div>
 
         <div class="flex-col flex gap-2">
-          <label for="" class="text-sm text-slate-100/70 text-start font-fredoka md:text-base">Comments</label>
-          <textarea class="rounded-md px-3 py-1 bg-green-teal-dark font-nova-mono text-yellow-ligth" name="" id="" cols="30" rows="10"></textarea>
+          <label for="contactComment" class="text-sm text-slate-100/70 text-start font-fredoka md:text-base">Comments</label>
+          <textarea class="rounded-md px-3 py-1 bg-green-teal-dark font-nova-mono text-yellow-ligth" name="contactComment" id="contactComment" cols="30" rows="10"></textarea>
         </div>
 
         <div class="flex gap-2 bg-blue-clear rounded-md text-green-teal-dark font-nova-mono p-3 w-fit">
           <img src="/img/send.svg" alt="">
-          <button class="">Send</button>
+          <button id="send-btn">Send</button>
         </div>
         
       </form>
     </section>
 
   </main>
+  <!-- <script type="module" src="src/sendEmail.js"></script> -->
   <script type="module" src="src/main.js"></script>
 </body>
 
