@@ -122,24 +122,29 @@ window.addEventListener('DOMContentLoaded', function () {
 document.getElementById('emailForm').addEventListener('submit', async function (event) {
   event.preventDefault()
 
-  const response = await fetch('http://localhost:3000/send-email', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: contactName.value,
-      senderEmail: contactEmail.value,
-      message: contactComment.value
+  try {
+    const response = await fetch('/.netlify/functions/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: contactName.value,
+        senderEmail: contactEmail.value,
+        message: contactComment.value
+      })
     })
-  })
 
-  const result = await response.text()
-  console.log(result)
+    const result = await response.text()
+    console.log(result)
 
-  if (response.ok) {
-    alert('Email sent successfully!')
-  } else {
-    alert('Failed to send email.')
+    if (response.ok) {
+      alert('Email sent successfully!')
+    } else {
+      alert('Failed to send email.')
+    }
+  } catch (error) {
+    console.error('Error:', error)
+    alert('An error occurred while sending the email.')
   }
 })
