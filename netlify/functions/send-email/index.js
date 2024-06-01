@@ -11,7 +11,7 @@ const app = express()
 app.use(express.json())
 
 const corsOptions = {
-  origin: 'https://scueter.com/',
+  origin: process.env.CLIENT_URL,
   optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions))
