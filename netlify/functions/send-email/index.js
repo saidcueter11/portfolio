@@ -91,6 +91,4 @@ function sendSuccessEmail (name, senderEmail) {
   })
 }
 
-app.use('/.netlify/functions/send-email', app)
-
 module.exports.handler = serverless(app)
