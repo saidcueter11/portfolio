@@ -30,11 +30,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@netlify/functions": "^2.7.0",
     "aws-serverless-express": "^3.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "emailjs": "^4.0.3",
     "express": "^4.19.2",
+    "nodemailer": "^6.9.13",
     "serverless-http": "^3.2.0"
   }
 }
