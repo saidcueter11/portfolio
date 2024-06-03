@@ -462,24 +462,27 @@
       <form action="/send-email" id="emailForm" class="flex flex-col gap-5 w-full pt-8">
         <div class="flex flex-col gap-2">
           <label for="contactName" class="text-sm text-slate-100/70 text-start font-fredoka md:text-base">Name</label>
-          <input id="contactName" name="contactName" class="rounded-md px-3 py-1 bg-green-teal-ligth/10 font-nova-mono text-yellow-ligth" type="text">
+          <input id="contactName" name="contactName" class="rounded-md hover:border-yellow-ligth/80 transition-all border-2 border-transparent px-3 py-1 bg-green-teal-ligth/10 font-nova-mono text-yellow-ligth" type="text">
         </div>
 
         <div class="flex flex-col gap-2">
           <label for="contactEmail" class="text-sm text-slate-100/70 text-start font-fredoka md:text-base">Email</label>
-          <input id="contactEmail" name="contactEmail" class="rounded-md px-3 py-1 bg-green-teal-ligth/10 font-nova-mono text-yellow-ligth" type="email">
+          <input id="contactEmail" name="contactEmail" class="rounded-md hover:border-yellow-ligth/80 transition-all border-2 border-transparent px-3 py-1 bg-green-teal-ligth/10 font-nova-mono text-yellow-ligth" type="email">
         </div>
 
         <div class="flex-col flex gap-2">
           <label for="contactComment" class="text-sm text-slate-100/70 text-start font-fredoka md:text-base">Comments</label>
-          <textarea class="resize-none rounded-md px-3 py-1 bg-green-teal-ligth/10 font-nova-mono text-yellow-ligth" name="contactComment" id="contactComment" rows="5"></textarea>
+          <textarea class="resize-none rounded-md hover:border-yellow-ligth/80 transition-all border-2 border-transparent px-3 py-1 bg-green-teal-ligth/10 font-nova-mono text-yellow-ligth" name="contactComment" id="contactComment" rows="5"></textarea>
         </div>
 
-        <button id="send-btn" class="flex gap-2 font-bold bg-blue-clear rounded-md text-green-teal-dark font-nova-mono p-3 w-fit hover:scale-105 transform transition-all">
-          <img src="/img/send.svg" alt="">
+        <button id="send-btn" class="flex gap-2 font-bold bg-blue-clear rounded-md text-green-teal-dark font-nova-mono p-3 w-fit hover:scale-105 transform transition-all disabled:opacity-70 disabled:pointer-events-none">
+          <img src="/img/send.svg" alt="" id="sendIcon" class="transition-opacity duration-700">
+          <img src="/img/spinner.svg" alt="" id="spinnerIcon" class="hidden animate-spin">
           <span>Send</span>
         </button>
-        
+
+        <p class="font-nova-mono text-yellow-ligth opacity-0 transition-opacity duration-700" id="successEmailMssg">Email sent successfully!</p>
+        <p class="text-red-400 font-nova-mono opacity-0 transition-opacity duration-700 hidden" id="failedEmailMssg">Failed to send email.</p>
       </form>
     </section>
 

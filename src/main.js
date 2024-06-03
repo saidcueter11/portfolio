@@ -2,18 +2,28 @@ export { }
 
 let lastScrollPosition = 0
 
+// Menu elements
 const menuCollpased = document.querySelector('#menu-collapsed')
 const menuExpanded = document.querySelector('#menu-expanded')
+
+// Pages
 // const homePage = document.querySelector('#homePage')
 const aboutPage = document.querySelector('#aboutPage')
 const projectPage = document.querySelector('#projectPage')
 const contactPage = document.querySelector('#contactPage')
 const experiencePage = document.querySelector('#experiencePage')
 const header = document.querySelector('#header')
-// const sendBtn = document.querySelector('#send-btn')
+
+// Form elements
 const contactName = document.querySelector('#contactName')
+const emailForm = document.querySelector('#emailForm')
 const contactEmail = document.querySelector('#contactEmail')
 const contactComment = document.querySelector('#contactComment')
+const successEmailMssg = document.querySelector('#successEmailMssg')
+const sendIcon = document.querySelector('#sendIcon')
+const spinnerIcon = document.querySelector('#spinnerIcon')
+const sendBtn = document.querySelector('#send-btn')
+const failedEmailMssg = document.querySelector('#failedEmailMssg')
 
 const pageTransition = (page) => {
   page.classList.remove('opacity-0')
@@ -119,8 +129,13 @@ window.addEventListener('DOMContentLoaded', function () {
   typeText()
 })
 
-document.getElementById('emailForm').addEventListener('submit', async function (event) {
+emailForm.addEventListener('submit', async function (event) {
   event.preventDefault()
+
+  sendIcon.classList.add('hidden')
+  spinnerIcon.classList.remove('hidden')
+  spinnerIcon.classList.add('block')
+  sendBtn.disabled = true
 
   try {
     const response = await fetch('/.netlify/functions/send-email', {
@@ -139,9 +154,22 @@ document.getElementById('emailForm').addEventListener('submit', async function (
     console.log(result)
 
     if (response.ok) {
-      alert('Email sent successfully!')
+      failedEmailMssg.classList.add('hidden')
+      successEmailMssg.classList.remove('hidden')
+      successEmailMssg.classList.add('opacity-100')
+      emailForm.reset()
+      sendBtn.disabled = false
+
+      spinnerIcon.classList.remove('block')
+      spinnerIcon.classList.add('hidden')
+
+      sendIcon.classList.remove('hidden')
+      sendIcon.classList.add('block')
     } else {
-      alert('Failed to send email.')
+      failedEmailMssg.classList.remove('hidden')
+      failedEmailMssg.classList.add('block')
+      failedEmailMssg.classList.add('opacity-100')
+      successEmailMssg.classList.add('hidden')
     }
   } catch (error) {
     console.error('Error:', error)
